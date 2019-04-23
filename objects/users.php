@@ -104,8 +104,7 @@ function readTwo(){
 
 public function getAllUids() {
       $query = " SELECT uid FROM users";
-      $stmt = $this->conn->prepare($query);
-      $stmt->execute();
-      return $stmt->fetchColumn();
+      $stmt = $this->conn->query($query);
+      return $stmt->fetch();
 }
 }
