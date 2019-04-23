@@ -101,4 +101,11 @@ function readTwo(){
     $this->email = $row['email'];
     $this->password = $row['password']; 
 }
+
+public function getAllUids() {
+      $query = " SELECT uid FROM users;";
+      $stmt = $this->conn->prepare($query);
+      $stmt->execute();
+      return $stmt;
+}
 }

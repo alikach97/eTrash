@@ -47,4 +47,28 @@ function readOne(){
  
     return $stmt;
 }
+
+public function create() {
+  $mid = $this->mid;
+  $sid = $this->sid;
+  $ts = $this->ts;
+  $lvl = $this->fill_level;
+
+  $query = " INSERT INTO measure (mid, sid, ts, fill_level) VALUE ($mid, $sid, $ts, $lvl);";
+
+  $stmt = $this->conn->prepare($query);
+
+  // bind values
+  $stmt->bindParam(":mid", $this->mid);
+  $stmt->bindParam(":sid", $this->sid);
+  $stmt->bindParam(":ts", $this->ts);
+  $stmt->bindParam(":fill_level", $this->fill_level);
+
+  // execute query
+  if($stmt->execute()){
+    return true;
+  }
+
+  return false;
+ }
 }
