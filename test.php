@@ -20,13 +20,10 @@ $ind=0;
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     extract($row);
     $xml.='<marker ';
-    $xml.='cid="' . $cid. '" ';
-    $xml.='name="' . $name . '" ';
-    $xml.='lat="' . $latitude . '" ';
-    $xml.='lng="' . $longitude . '" ';
-  	$xml.='address="' . $address . '" ';
-    $xml.='city="' . $city . '" ';
-    $xml.='country="' . $country . '" ';
+    $xml.='sid="' . $sid. '" ';
+    $xml.='fill_level="' . $fill_level . '" ';
+    $xml.='lat="' . $lat . '" ';
+    $xml.='lng="' . $lng . '" ';
     $xml.='/>';
     $ind = $ind + 1;
     }

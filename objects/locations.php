@@ -6,10 +6,10 @@ class Location{
     private $table_name = "companies";
  
     // object properties
-    public $cid;
-    public $name;
-    public $latitude; 
-    public $longitude; 
+    public $sid;
+    public $dill_level;
+    public $lat; 
+    public $lng; 
     // constructor with $db as database connection
     public function __construct($db){
         $this->conn = $db;
@@ -18,10 +18,7 @@ class Location{
 function read(){
  
     // select all query
-    $query = "SELECT
-                cid, name, latitude, longitude, address, city, country
-            FROM
-                companies WHERE 1;";
+    $query = "SELECT lat, lng, sensors.sid, measure.fill_level FROM sensors INNER JOIN measure on measure.sid = sensors.sid GROUP BY measure.sid ORDER BY measure.ts";
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);
