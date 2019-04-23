@@ -9,7 +9,8 @@ $database = new Database();
 $db = $database->getConnection();
 $user = new User($db);
 // set product property values
-for ($i = 0; $i < 50 ; $i++) {
+/*
+  for ($i = 0; $i < 50 ; $i++) {
   $userRandom['name'] = genRanAlphaString();// random creation of $user
   $userRandom['username'] = genRanAlphaNumString();
   $userRandom['email'] = $userRandom['username'] . "@somemail.com";
@@ -20,7 +21,7 @@ for ($i = 0; $i < 50 ; $i++) {
   $user->password = $userRandom["password"];
   $user->create();
 }
-
+*/
 $arrUid = $user->getAllUids();
 $arrUid = array_column($arrUid, 'uid');
 $latitude = 33.8;
@@ -28,15 +29,15 @@ $longitude = 35.4;
 $sensor = new Sensor($db);
 for ($i =0; $i<50; $i++) {
   $sensorRandom['uid'] = $arrUid[rand(0,sizeof($arrUid)-1)];
-  $sensorRandom['lat'] = $latitude . genRanNumString(4);
-  $sensorRandom['lng'] = $longitude . genRanNumString(4);
+  $sensorRandom['lat'] = $latitude . genRanNumString(7);
+  $sensorRandom['lng'] = $longitude . genRanNumString(7);
 
-  var_dump($sensorRandom);
-  die();
+
   $sensor->uid = $sensorRandom['uid'];
-  $sensor->lat = $sensorRandom['lat'];
-  $sensor->lng = $sensorRandom['lng'];
+  $sensor->lat = (float) $sensorRandom['lat'];
+  $sensor->lng = (float) $sensorRandom['lng'];
   $sensor->create();
+  die();
 }
 
 
