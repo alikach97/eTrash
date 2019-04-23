@@ -57,4 +57,10 @@ class Sensor
 
     return false;
   }
+
+  public function getAllSids() {
+    $query = " SELECT sid FROM users WHERE 1";
+    $stmt = $this->conn->query($query);
+    return $stmt->fetchAll();
+  }
 }

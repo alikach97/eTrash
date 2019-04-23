@@ -5,10 +5,11 @@ include "./objects/users.php";
 include "./objects/measurements.php";
 include "./objects/sensors.php";
 
-die();
+
 $database = new Database();
 $db = $database->getConnection();
 $user = new User($db);
+$sensor = new Sensor($db);
 // set product property values
 /*
   for ($i = 0; $i < 50 ; $i++) {
@@ -22,7 +23,7 @@ $user = new User($db);
   $user->password = $userRandom["password"];
   $user->create();
 }
-*/
+
 $arrUid = $user->getAllUids();
 $arrUid = array_column($arrUid, 'uid');
 $latitude = 33.8;
@@ -39,11 +40,17 @@ for ($i =0; $i<1000; $i++) {
   $sensor->create();
 }
 
-
-
+*/
+$arrSensor = $sensor->getAllSids();
+$arrSensor = array_column($arrSensor,'sid');
+var_dump($arrSensor);
 $measure = new Measurement($db);
-$measureRandom = 0; // random creation of measurement
-$measure->mid = $measureRandom['mid'];
+foreach ($arrSensor as $sid)
+$measureRandom['sid'] = $sid;
+$measureRandom['ts'] =  new date();
+$measureRandom['fill_level'] = rand(20,100);
+var_dump($measureRandom);
+die();
 $measure->sid = $measureRandom['sid'];
 $measure->ts = $measureRandom['ts'];
 $measure->fill_level = $measureRandom['fill_level'];
