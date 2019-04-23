@@ -1,6 +1,9 @@
 <?php
 // get database connection
 include "./config/database.php";
+include "./objects/users.php";
+include "./objects/measurements.php";
+include "./objects/sensors.php";
 
 $database = new Database();
 $db = $database->getConnection();
