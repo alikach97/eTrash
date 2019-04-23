@@ -103,7 +103,7 @@ function readTwo(){
 }
 
 public function getAllUids() {
-      $query = " SELECT uid FROM users";
+      $query = " SELECT uid FROM users WHERE 1";
       $stmt = $this->conn->query($query);
       return $stmt->fetch();
 }
