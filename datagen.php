@@ -5,6 +5,7 @@ include "./objects/users.php";
 include "./objects/measurements.php";
 include "./objects/sensors.php";
 
+die();
 $database = new Database();
 $db = $database->getConnection();
 $user = new User($db);
