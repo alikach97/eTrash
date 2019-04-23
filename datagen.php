@@ -9,9 +9,7 @@ $database = new Database();
 $db = $database->getConnection();
 $user = new User($db);
 // set product property values
-//for ($i = 0; $i < 50 ; $i++) {
-var_dump($user->getAllUids());
-die();
+for ($i = 0; $i < 50 ; $i++) {
   $userRandom['name'] = genRanAlphaString();// random creation of $user
   $userRandom['username'] = genRanAlphaNumString();
   $userRandom['email'] = $userRandom['username'] . "@somemail.com";
@@ -21,11 +19,10 @@ die();
   $user->username = $userRandom["username"];
   $user->password = $userRandom["password"];
   $user->create();
-
-//}
+}
 
 $arrUid = $user->getAllUids();
-var_dump($arrUid);
+$arrUid = array_column($arrUid, 'uid');
 $latitude = 33.8;
 $longitude = 35.4;
 $sensor = new Sensor($db);
