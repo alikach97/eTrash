@@ -37,17 +37,15 @@ class Sensor
   }
 
   public function create(){
-      $sid = $this->sid;
       $uid = $this->uid;
       $lat = $this->lat;
       $lng = $this->lng;
 
-      $query = " INSERT INTO sensors (sid, uid, lat, lng) VALUE ($sid, $uid, $lat, $lng);";
+      $query = " INSERT INTO sensors (uid, lat, lng) VALUE ($uid, $lat, $lng);";
 
       $stmt = $this->conn->prepare($query);
 
     // bind values
-    $stmt->bindParam(":sid", $this->sid);
     $stmt->bindParam(":uid", $this->uid);
     $stmt->bindParam(":lat", $this->lat);
     $stmt->bindParam(":lng", $this->lng);

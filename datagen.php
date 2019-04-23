@@ -15,9 +15,6 @@ for ($i = 0; $i < 50 ; $i++) {
   $userRandom['username'] = genRanAlphaNumString();
   $userRandom['email'] = $userRandom['username'] . "@somemail.com";
   $userRandom['password'] = genRanAlphaNumString();
-  
-  var_dump($userRandom);
-  die();
   $user->name = $userRandom["name"];
   $user->email = $userRandom["email"];
   $user->username = $userRandom["username"];
