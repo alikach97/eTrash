@@ -27,7 +27,7 @@ $latitude = 33.8;
 $longitude = 35.4;
 $sensor = new Sensor($db);
 for ($i =0; $i<50; $i++) {
-  $sensorRandom['uid'] = $arrUid(rand(0,sizeof($arrUid)-1));
+  $sensorRandom['uid'] = $arrUid[rand(0,sizeof($arrUid)-1)];
   $sensorRandom['lat'] = $latitude . genRanNumString(4);
   $sensorRandom['lng'] = $longitude . genRanNumString(4);
 
