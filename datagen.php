@@ -27,17 +27,15 @@ $arrUid = array_column($arrUid, 'uid');
 $latitude = 33.8;
 $longitude = 35.4;
 $sensor = new Sensor($db);
-for ($i =0; $i<50; $i++) {
+for ($i =0; $i<1000; $i++) {
   $sensorRandom['uid'] = $arrUid[rand(0,sizeof($arrUid)-1)];
   $sensorRandom['lat'] = $latitude . genRanNumString(13);
   $sensorRandom['lng'] = $longitude . genRanNumString(13);
-
 
   $sensor->uid = $sensorRandom['uid'];
   $sensor->lat = (float) $sensorRandom['lat'];
   $sensor->lng = (float) $sensorRandom['lng'];
   $sensor->create();
-  die();
 }
 
 
