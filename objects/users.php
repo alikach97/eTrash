@@ -106,6 +106,6 @@ public function getAllUids() {
       $query = " SELECT uid FROM users";
       $stmt = $this->conn->prepare($query);
       $stmt->execute();
-      return $stmt->fetch();
+      return $stmt->fetchColumn();
 }
 }
