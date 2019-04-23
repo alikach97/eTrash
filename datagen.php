@@ -10,7 +10,8 @@ $db = $database->getConnection();
 $user = new User($db);
 // set product property values
 //for ($i = 0; $i < 50 ; $i++) {
-
+var_dump($user->getAllUids());
+die();
   $userRandom['name'] = genRanAlphaString();// random creation of $user
   $userRandom['username'] = genRanAlphaNumString();
   $userRandom['email'] = $userRandom['username'] . "@somemail.com";
