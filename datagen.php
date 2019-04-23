@@ -45,17 +45,17 @@ $arrSensor = $sensor->getAllSids();
 $arrSensor = array_column($arrSensor,'sid');
 var_dump($arrSensor);
 $measure = new Measurement($db);
-foreach ($arrSensor as $sid)
-$measureRandom['sid'] = $sid;
-$measureRandom['ts'] =  new date();
-$measureRandom['fill_level'] = rand(20,100);
-var_dump($measureRandom);
-die();
-$measure->sid = $measureRandom['sid'];
-$measure->ts = $measureRandom['ts'];
-$measure->fill_level = $measureRandom['fill_level'];
-$measure->create();
-
+foreach ($arrSensor as $sid) {
+  $measureRandom['sid'] = $sid;
+  $measureRandom['ts'] = new date();
+  $measureRandom['fill_level'] = rand(20, 100);
+  var_dump($measureRandom);
+  die();
+  $measure->sid = $measureRandom['sid'];
+  $measure->ts = $measureRandom['ts'];
+  $measure->fill_level = $measureRandom['fill_level'];
+  $measure->create();
+}
 
 function genRanAlphaNumString($length = 7) {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
