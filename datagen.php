@@ -52,7 +52,7 @@ foreach ($arrSensor as $sid) {
   $measure->sid = $measureRandom['sid'];
   $measure->ts = $measureRandom['ts'];
   $measure->fill_level = $measureRandom['fill_level'];
- echo  $measure->create();
+   var_dump($measure->create());
 }
 
 function genRanAlphaNumString($length = 7) {
