@@ -47,12 +47,9 @@ $arrSensor = array_column($arrSensor,'sid');
 $measure = new Measurement($db);
 foreach ($arrSensor as $sid) {
   $measureRandom['sid'] = $sid;
-  $measureRandom['ts'] =  date("Y-m-d H:i:s");
   $measureRandom['fill_level'] = rand(20, 100);
   $measure->sid = $measureRandom['sid'];
-  $measure->ts = $measureRandom['ts'];
   $measure->fill_level = $measureRandom['fill_level'];
-   var_dump($measure->create());
 }
 
 function genRanAlphaNumString($length = 7) {
