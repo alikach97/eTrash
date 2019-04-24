@@ -34,9 +34,9 @@ for ($i =5; $i<54; $i++) {
   $sensorRandom['lat'] = $latitude . rand(871213,899144);
   $sensorRandom['lng'] = $longitude . rand(472021,535262);
 
-  $query = "UPDATE sensors SET lat = ?, lng = ? WHERE sid = ?;";
+  $query = "UPDATE sensors SET lat = {$sensorRandom['lat']} , lng = {$sensorRandom['lng']} WHERE sid = $i;";
   $db->prepare($query);
-  $db->execute([$sensorRandom['lat'], $sensorRandom['lng'], $i]);
+  $db->execute();
 
   /*
   $sensor->uid = $sensorRandom['uid'];
