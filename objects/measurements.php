@@ -50,16 +50,14 @@ function readOne(){
 
 public function create() {
   $sid = $this->sid;
-  $ts = $this->ts;
   $fill_level = $this->fill_level;
 
-  $query = "INSERT INTO measure (sid, ts, fill_level) VALUE ($sid, $ts, $fill_level);";
+  $query = "INSERT INTO measure (sid, fill_level) VALUE ($sid, $fill_level);";
 
   $stmt = $this->conn->prepare($query);
 
   // bind values
   $stmt->bindParam(":sid", $this->sid);
-  $stmt->bindParam(":ts", $this->ts);
   $stmt->bindParam(":fill_level", $this->fill_level);
 
   // execute query
