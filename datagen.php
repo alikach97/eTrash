@@ -50,6 +50,7 @@ foreach ($arrSensor as $sid) {
   $measureRandom['fill_level'] = rand(20, 100);
   $measure->sid = $measureRandom['sid'];
   $measure->fill_level = $measureRandom['fill_level'];
+  $measure->create();
 }
 
 function genRanAlphaNumString($length = 7) {
