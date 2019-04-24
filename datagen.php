@@ -49,8 +49,6 @@ foreach ($arrSensor as $sid) {
   $measureRandom['sid'] = $sid;
   $measureRandom['ts'] =  date("Y-m-d H:i:s");
   $measureRandom['fill_level'] = rand(20, 100);
-  var_dump($measureRandom);
-  die();
   $measure->sid = $measureRandom['sid'];
   $measure->ts = $measureRandom['ts'];
   $measure->fill_level = $measureRandom['fill_level'];
