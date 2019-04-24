@@ -48,8 +48,6 @@ $measure = new Measurement($db);
 foreach ($arrSensor as $sid) {
   $measureRandom['sid'] = $sid;
   $measureRandom['fill_level'] = rand(20, 100);
-  var_dump($measureRandom);
-  continue;
   $measure->sid = (int) $measureRandom['sid'];
   $measure->fill_level = $measureRandom['fill_level'];
   var_dump($measure->create());
