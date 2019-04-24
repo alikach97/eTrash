@@ -23,24 +23,30 @@ $sensor = new Sensor($db);
   $user->password = $userRandom["password"];
   $user->create();
 }
-
+*/
 $arrUid = $user->getAllUids();
 $arrUid = array_column($arrUid, 'uid');
-$latitude = 33.8;
-$longitude = 35.4;
+$latitude = 33.;
+$longitude = 35.;
 $sensor = new Sensor($db);
-for ($i =0; $i<1000; $i++) {
-  $sensorRandom['uid'] = $arrUid[rand(0,sizeof($arrUid)-1)];
-  $sensorRandom['lat'] = $latitude . genRanNumString(13);
-  $sensorRandom['lng'] = $longitude . genRanNumString(13);
+for ($i =5; $i<54; $i++) {
+ // $sensorRandom['uid'] = $arrUid[rand(0,sizeof($arrUid)-1)];
+  $sensorRandom['lat'] = $latitude . rand(871213,899144);
+  $sensorRandom['lng'] = $longitude . rand(472021,535262);
 
+  $query = "UPDATE sensors SET lat = ?, lng = ? WHERE sid = ?;";
+  $db->prepare($query);
+  $db->execute([$sensorRandom['lat'], $sensorRandom['lng'], $i]);
+
+  /*
   $sensor->uid = $sensorRandom['uid'];
   $sensor->lat = (float) $sensorRandom['lat'];
   $sensor->lng = (float) $sensorRandom['lng'];
   $sensor->create();
+*/
 }
 
-*/
+/*
 $arrSensor = $sensor->getAllSids();
 $arrSensor = array_column($arrSensor,'sid');
 //var_dump($arrSensor);
@@ -52,7 +58,7 @@ foreach ($arrSensor as $sid) {
   $measure->fill_level = $measureRandom['fill_level'];
   var_dump($measure->create());
 }
-
+*/
 function genRanAlphaNumString($length = 7) {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
   $charactersLength = strlen($characters);
