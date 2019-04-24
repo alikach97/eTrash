@@ -43,7 +43,7 @@ for ($i =0; $i<1000; $i++) {
 */
 $arrSensor = $sensor->getAllSids();
 $arrSensor = array_column($arrSensor,'sid');
-var_dump($arrSensor);
+//var_dump($arrSensor);
 $measure = new Measurement($db);
 foreach ($arrSensor as $sid) {
   $measureRandom['sid'] = $sid;
